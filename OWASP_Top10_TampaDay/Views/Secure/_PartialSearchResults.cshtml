@@ -1,0 +1,35 @@
+﻿@{/* SECURE A1 PARTIAL */}
+@model IEnumerable<OWASP_Top10_TampaDay.Models.Items>
+
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abstract)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="col-md-2">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td class="col-md-10">
+                    @Html.Raw(Microsoft.Security.Application.Sanitizer.GetSafeHtmlFragment(item.Abstract));
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h3>Sorry no results found.</h3>
+}

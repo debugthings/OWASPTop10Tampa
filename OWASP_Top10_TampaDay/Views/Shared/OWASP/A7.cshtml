@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "A7 - Missing Function Level Access Control";
+}
+
+<h2>This is the entrance into the admin portal if you have access a link will be displayed</h2>
+
+@if(User.IsInRole("Admin"))
+{
+    Url.Action("Admin");
+}

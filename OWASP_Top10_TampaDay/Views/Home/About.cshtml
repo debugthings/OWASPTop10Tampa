@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "About this Application";
+
+}
+<h1>@ViewBag.Title</h1>
+
+<h4>Welcome to the OWASP Top 10 by James Davis (<a href="http://www.twitter.com/debugthings">@@debugthings</a>). </h4>
+
+<h2>Purpose</h2>
+<p>In order to demonstrate how complex requirements can often introduce unintended security vulnerablities. Often Devs have to wear the hat of Sec and often Sec has to wear the hat of Devs. The hope is to show some clever ways to mitigate some common vulnerabilities using the MVC architecture.</p>
+
+<h2>Technologies</h2>
+<p>These are the technologies used to create this website. This can be deployed in Azure or it can be deployed on a local machine. The backing store is by default a SQL file. This can be moved to any database engine that entity framework supports.</p>
+
+<ul class="big-list">
+    <li>IIS 8</li>
+    <li class="abstract"><p>As of the time of this site's creation, IIS 8 is the latest Internet Information Services platform that is available. It runs on both Azure and Windows Server. Check out <a href="http://www.iis.net/">IIS Official Site</a> for more information.</p></li>
+    <li>.NET 4.0</li>
+    <li class="abstract"><p>.NET 4.0 was released in 2010 and is still one of the most widely used versions of .NET in the wild. .NET 4.5, 4.5.1, and 4.5.2 have been released since then. MVC 4 and greater must use .NET 4.0 and greater.</p></li>
+    <li>MVC 5.2</li>
+    <li class="abstract"><p>This is the latest GA version of MVC. It was released on July 1st 2014. The release cycles for MVC aren't scheduled, but you can expect about 4 releases a year.</p></li>
+    <li>Entity Framework 6</li>
+    <li class="abstract"><p>This is the latest major version of Entity Framework.  There are 4 minor revisions as of this sites creation that have bug fixes and enhancements to the product.</p></li>
+    <li>AntiXSS 4.3</li>
+    <li class="abstract"><p>This is the latest stable version of AntiXSS. It was entered into NuGet on June 2nd 2014. This library provides protection from all types of injection attacks: Html, XML, Form, LDAP, CSS, etc.</p></li>
+</ul>
+
+<h2>Resources</h2>
+<p>Here are a list of resources to explain a few concepts better.</p>
+
+<h3>MVC and ASP.NET Security</h3>
+<ul class="big-list">
+    <li><a href="http://channel9.msdn.com/Events/MIX/MIX10/FT05">The HaaHa Show: Microsoft ASP.NET MVC Security with Haack and Hanselman</a></li>
+    <li class="abstract"><p>A MIX session from 2010 that covers a lot of topics beyon the scope of the OWASP Top 10. Watch Scott Handelman and Phil Haack create features and exploit them on the fly.</p></li>
+
+</ul>
+
+<h3>Custom Model Bindings</h3>
+<ul class="big-list">
+    <li><a href="http://www.codeproject.com/Articles/605595/ASP-NET-MVC-Custom-Model-Binder">Code Project: ASP.NET MVC Custom Model Binder</a></li>
+    <li class="abstract"><p>Great article showing how to create a custom model binding from the DefaultModelBinder class. Includes code examples.</p></li>
+    <li><a href="http://msdn.microsoft.com/en-us/magazine/hh781022.aspx">The Features and Foibles of ASP.NET MVC Model Binding</a></li>
+    <li class="abstract"><p>Great article showing how to creat a custom model binding.</p></li>
+    
+</ul>
+
+<h3>Custom Action Filters</h3>
+<ul class="big-list">
+    <li><a href="http://www.asp.net/mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters">ASP.NET MVC 4 Custom Action Filters</a></li>
+    <li class="abstract"><p>A hands on lab that shows how to create and extend a custom action filter. Also covers concepts about order and preference.</p></li>
+</ul>
+
+<h3>AntiXSS Usage</h3>
+<ul class="big-list">
+    <li><a href="http://haacked.com/archive/2010/04/06/using-antixss-as-the-default-encoder-for-asp-net.aspx/">Using AntiXss As The Default Encoder For ASP.NET</a></li>
+    <li class="abstract"><p>A blog post containing step by step written instructions on how to make AntiXSS your default encoder. This only applies to MVC 4 and above.</p></li>
+    <li><a href="http://haacked.com/archive/2010/04/06/using-antixss-as-the-default-encoder-for-asp-net.aspx/">Using AntiXss As The Default Encoder For ASP.NET</a></li>
+    <li class="abstract"><p>A blog post containing step by step written instructions on how to make AntiXSS your default encoder. This only applies to MVC 4 and above.</p></li>
+    
+</ul>

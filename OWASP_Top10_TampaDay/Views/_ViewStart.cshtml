@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (HttpContext.Current.Request.RequestContext.RouteData.Values["controller"] == "Secure" | HttpContext.Current.Request.RequestContext.RouteData.Values["controller"] == "Vulnerable")
+    {
+        Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+    }
+   
+    
+}

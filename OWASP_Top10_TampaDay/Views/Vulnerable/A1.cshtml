@@ -1,0 +1,36 @@
+﻿@{/* VULNERABLE A1  */}
+
+@{
+    ViewBag.Title = "A1 - Injection Demo";
+
+}
+
+<h2>Search for Intersting Articles</h2>
+<p>Our articles are word class and deserve to be looked at! Search for your favorite.</p>
+
+@using (Html.BeginForm("A1", "Vulnerable", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Comments</h4>
+        <hr />
+        <div class="form-group">
+            @Html.Label("Search", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("searchTerm", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@if (HttpContext.Current.Request.QueryString.AllKeys.Contains("searchTerm"))
+{
+    Html.RenderPartial("_PartialSearchResults"); 
+}
+

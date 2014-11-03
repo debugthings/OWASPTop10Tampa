@@ -1,0 +1,31 @@
+﻿@model IEnumerable<OWASP_Top10_TampaDay.Models.Comments>
+
+@{
+    ViewBag.Title = "A3 - XSS Demo";
+}
+
+<h2>Add your comments below!</h2>
+<p>We would love to hear your feed back! All comments are viewable by all users.</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Comments</h4>
+        <hr />
+        <div class="form-group">
+            @Html.Label("Enter your comment:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("Comment", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+@{ Html.RenderPartial("OWASP/_CommentsPartial");  }
+

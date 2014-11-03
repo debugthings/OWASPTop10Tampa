@@ -1,0 +1,33 @@
+﻿@{/* VULNERABLE A1 PARTIAL */}
+@{
+    System.Data.DataTable results = ViewBag.SearchResults;
+}
+
+@if(results.Rows.Count > 0)
+{
+<table class="table">
+    <tr>
+        @foreach (var dataColumn in results.Columns)
+        {
+        <th>
+            @dataColumn
+        </th>
+        }
+    </tr>
+
+    @foreach (System.Data.DataRow item in results.Rows)
+    {
+    <tr>
+        @foreach (var itemResult in item.ItemArray)
+        {
+        <td class="col-md-2">
+            @Html.Raw(itemResult)
+        </td>
+        }
+    </tr>
+    }
+
+</table>
+} else {
+<h3>Sorry no results found.</h3>
+}

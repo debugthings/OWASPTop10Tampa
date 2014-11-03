@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "A4 - Insecure Direct Object References";
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ItemRequested))
+{
+    <h3>You requested item: @ViewBag.ItemRequested</h3>
+}
+<h2>Try the links below to see if you have access</h2>
+@Html.ActionLink("Normal Item 123456", "A4", new { id = 123456 })
+@if (HttpContext.Current.Request.RequestContext.RouteData.Values["controller"] == "Secure")
+{
+    <br />
+    @Html.ActionLink("User Item 123456", "A4User", new { id = "USER123456" })
+    <br />
+    @Html.ActionLink("Admin Item 123456", "A4Admin", new { id = "ADMIN123456" })
+}
+else
+{
+    <br />
+    @Html.ActionLink("User Item 123456", "A4", new { id = "USER123456" })
+    <br />
+    @Html.ActionLink("Admin Item 123456", "A4", new { id = "ADMIN123456" })
+}

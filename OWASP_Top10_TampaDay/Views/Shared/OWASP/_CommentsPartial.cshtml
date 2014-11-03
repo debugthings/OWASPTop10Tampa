@@ -1,0 +1,34 @@
+﻿@model IEnumerable<OWASP_Top10_TampaDay.Models.Comments>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-md-2">
+                @Html.DisplayFor(modelItem => item.CommentDate)
+            </td>
+            <td class="col-md-10">
+                @if (HttpContext.Current.Request.RequestContext.RouteData.Values["controller"] == "Vulnerable")
+                {
+                    @Html.Raw(item.Comment);
+                }
+                else
+                {
+                    @Html.Raw(Microsoft.Security.Application.Sanitizer.GetSafeHtmlFragment(item.Comment));
+                }
+            </td>
+        </tr>
+    }
+
+</table>

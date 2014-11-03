@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "A6 - Sensitive Data Exposure";
+}
+
+<h2>Security Cookies</h2>
+
+<p>This page sets a few cookies that are required for security. Please make sure you are using a SSL conection.</p>
+
+<script>
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+    document.write(getCookie('SecureBankInfo'));
+    document.write('<br />');
+    document.write(getCookie('UserToken'));
+</script>
+
