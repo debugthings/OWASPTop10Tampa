@@ -25,7 +25,7 @@ namespace OWASP_Top10_TampaDay.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Admin()
         {
-            return View();
+            return View("OWASP/Admin");
         }
 
 
@@ -115,7 +115,7 @@ namespace OWASP_Top10_TampaDay.Controllers
                     HttpOnly = true
                 });
             }
-            
+
             return View("OWASP/A6");
         }
 
@@ -123,6 +123,26 @@ namespace OWASP_Top10_TampaDay.Controllers
         {
             return View("OWASP/A7");
         }
-      
+
+        [Filters.ReferrerRedirect]
+        public ActionResult A10(string Redirect)
+        {
+            
+            if (!string.IsNullOrEmpty(Redirect))
+            {
+                if (Url.IsLocalUrl(Redirect))
+                {
+                    return A10Rediret(Redirect);
+                }
+            }
+
+            return View("OWASP/A10");
+        }
+
+        [ValidateAntiForgeryToken]
+        public ActionResult A10Rediret(string Redirect)
+        {
+            return new RedirectResult(Redirect);
+        }
     }
 }

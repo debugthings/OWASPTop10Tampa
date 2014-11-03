@@ -7,5 +7,5 @@
 
 @if(User.IsInRole("Admin"))
 {
-    Url.Action("Admin");
+    @Html.ActionLink("Admin Portal", "Admin");
 }

@@ -1,7 +1,7 @@
 ﻿@{/* SECURE A1 PARTIAL */}
 @model IEnumerable<OWASP_Top10_TampaDay.Models.Items>
 
-@if (Model.Count() > 0)
+@if (Model != null  && Model.Count() > 0)
 {
     <table class="table">
         <tr>

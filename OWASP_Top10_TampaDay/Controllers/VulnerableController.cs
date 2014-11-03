@@ -101,5 +101,14 @@ namespace OWASP_Top10_TampaDay.Controllers
         {
             return View("OWASP/A7");
         }
+
+        public ActionResult A10(string Redirect)
+        {
+            if (string.IsNullOrEmpty(Redirect))
+            {
+                return View("OWASP/A10");
+            }
+            return new RedirectResult(Redirect);
+        }
     }
 }

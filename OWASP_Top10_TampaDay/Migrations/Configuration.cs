@@ -1,5 +1,8 @@
 namespace OWASP_Top10_TampaDay.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using OWASP_Top10_TampaDay.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -99,6 +102,77 @@ Culpa consectetur sausage in eu corned beef bacon dolore veniam kevin et pariatu
 Beef ribs pork velit, dolore exercitation frankfurter lorem voluptate meatloaf cillum bacon do ground round. Short loin salami pariatur fugiat ham hock in lorem meatloaf consequat pork ea shoulder. Cupidatat dolore id, quis tail andouille turducken exercitation. Doner jowl dolore, fugiat venison id laborum lorem reprehenderit pork loin voluptate frankfurter ea velit ut. Beef ribs kevin proident in, ex meatloaf ham hock ullamco ea eiusmod turkey pork belly. Minim pariatur prosciutto, labore aliqua jerky venison proident andouille kielbasa consequat dolor."
                  }
                 );
+
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+
+            //Create Role Admin if it does not exist
+            if (!RoleManager.RoleExists("Admin"))
+            {
+                var roleresult = RoleManager.Create(new IdentityRole("Admin"));
+            }
+            //Create Role Admin if it does not exist
+            if (!RoleManager.RoleExists("User"))
+            {
+                var roleresult = RoleManager.Create(new IdentityRole("User"));
+            }
+
+            CreateAdminUser("Admin", UserManager);
+            CreateUser("JamesD", UserManager);
+            CreateUser("RichR", UserManager);
+            CreateUser("SteveR", UserManager);
+            CreateUser("GaryB", UserManager);
+            CreateUser("JustinM", UserManager);
+            CreateUser("BretM", UserManager);
+            CreateUser("User1", UserManager);
+            CreateUser("User2", UserManager);
+            CreateUser("User3", UserManager);
+            CreateUser("User4", UserManager);
+            CreateUser("User5", UserManager);
+            CreateUser("User6", UserManager);
+            CreateUser("User7", UserManager);
+            CreateUser("User8", UserManager);
+            CreateUser("User9", UserManager);
+            context.SaveChanges();
+        }
+
+        private void CreateAdminUser(string UserName, UserManager<ApplicationUser> UserManager)
+        {
+            //Create User=Admin 
+            var userAdmin = new ApplicationUser()
+            {
+                UserName = UserName,
+                Email = string.Format("{0}@owasp.org", UserName),
+                PhoneNumber = "(800) 111-2222"
+            };
+            if (UserManager.FindByEmail(userAdmin.Email) == null)
+            {
+                var adminresult = UserManager.Create(userAdmin, "!Top10Top10!");
+                //Add User Admin to Role Admin
+                if (adminresult.Succeeded)
+                {
+                    var result = UserManager.AddToRole(userAdmin.Id, "Admin");
+                }
+            }
+            
+        }
+
+        private void CreateUser(string UserName, UserManager<ApplicationUser> UserManager)
+        {
+            //Create User=Admin 
+            var userAdmin = new ApplicationUser()
+            {
+                UserName = UserName,
+                Email = string.Format("{0}@owasp.org", UserName),
+                PhoneNumber = "(800) 111-2222"
+            };
+            var adminresult = UserManager.Create(userAdmin, "!Top10Top10!");
+            //Add User Admin to Role Admin
+            if (adminresult.Succeeded)
+            {
+                var result = UserManager.AddToRole(userAdmin.Id, "User");
+            }
         }
 
     }
