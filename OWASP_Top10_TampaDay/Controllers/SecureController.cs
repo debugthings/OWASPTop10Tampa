@@ -14,12 +14,6 @@ namespace OWASP_Top10_TampaDay.Controllers
         // GET: Secure
         public ActionResult Index()
         {
-            var cookie = new HttpCookie("SuperSecret");
-            cookie.HttpOnly = true;
-            cookie.Secure = true;
-            cookie.Shareable = false;
-            Response.Cookies.Add(cookie);
-            cookie.Value = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes("Some really secure personal information."));
             return View();
         }
         [Authorize(Roles = "Admin")]

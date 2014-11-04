@@ -12,9 +12,6 @@ namespace OWASP_Top10_TampaDay.Controllers
         // GET: Vulnerable
         public ActionResult Index()
         {
-            var cookie = new HttpCookie("SuperSecret");
-            cookie.Value = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes("Some really secure personal information."));
-            Response.Cookies.Add(cookie);
             return View();
         }
 
