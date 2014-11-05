@@ -3,7 +3,7 @@ OWASPTop10Tampa
 
 This is the companion site to the OWASP Tampa talk in November 2014. All of the code examples are free to use. However, be warned that they are for learning and example only. While I took every precaution to make the examples as close to production level, this is still a demo site.
 
-#Pre-Requisits
+#Prerequisites 
 
 - VS Express 2013 for Web
 - IIS Express (comes with VS Express)
@@ -41,7 +41,7 @@ LocalDB file
    providerName="System.Data.SqlClient" 
 /> 
 ```
-Once you're connection string is squared away you will need to run the follwoing commands in the NuGet Package Manager Console. If you get any messages stating that there are no changes that is okay. These commands will completely set up your database.
+Once you're connection string is squared away you will need to run the following commands in the NuGet Package Manager Console. If you get any messages stating that there are no changes that is okay. These commands will completely set up your database.
 
 ```
 PM> Enable-Migrations
