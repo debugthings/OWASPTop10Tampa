@@ -56,7 +56,6 @@ If you're using the LocalDB, you should try deleting and recreating the SQL data
 
 ##No SSL for IIS Express
 Yep. If you use IIS Express, this will happen. Here is an article on how to enable SSL for IIS Express.
-[http://www.hanselman.com/blog/WorkingWithSSLAtDevelopmentTimeIsEasierWithIISExpress.aspx][http://www.hanselman.com/blog/WorkingWithSSLAtDevelopmentTimeIsEasierWithIISExpress.aspx]
-
+[http://www.hanselman.com/blog/WorkingWithSSLAtDevelopmentTimeIsEasierWithIISExpress.aspx]
 ##Random Exceptions
 Not sure. Feel free to leave a comment or pull request with the stack trace and I will see what I can do.
